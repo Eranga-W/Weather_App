@@ -5,112 +5,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
-    <h1>Weather App</h1>
-    <div class="container-input">
-        <div class="weather-input">
-    <h3 style="text-align: left;">Enter a City Name</h3>
-            <input class="city-input" type="text" placeholder="E.g. Colombo, Gampaha, Kandy">
-            <button class="search-btn">Search</button>
-            <div class="separator"></div>
-            <button class="location-btn">Use Current Location</button>
-        </div>
-    </div>
-    <div class="container-weather">
-        <div class="weather-data">
+    <div class="sky-overlay" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <h1>Weather App</h1>
+        <p class="tagline">Forecast ahead. History behind.</p>
+    </header>
+
+    <main class="app-shell">
+        <section class="panel weather-input" aria-label="Search">
+            <h3>Enter a city name</h3>
+            <label class="sr-only" for="city-input">City name</label>
+            <input id="city-input" class="city-input" type="text" placeholder="E.g. Colombo, Gampaha, Kandy" autocomplete="address-level2">
+            <button type="button" class="search-btn">Search</button>
+            <div class="separator" aria-hidden="true"></div>
+            <button type="button" class="location-btn">Use Current Location</button>
+            <p class="status-message" role="status" aria-live="polite"></p>
+        </section>
+
+        <section class="weather-data" aria-label="Weather results">
             <div class="current-weather">
-                <div class="details">
-                    <h2>_______ ( ______ )</h2>
-                    <h6>Temperature: __°C</h6>
-                    <h6>Wind: __ m/s</h6>
-                    <h6>Humidity: __ %</h6>
+                <div class="details placeholder">
+                    <h2>Search a city</h2>
+                    <p class="date-label">Current conditions appear here</p>
+                    <h6>Temperature: —°C</h6>
+                    <h6>Wind: — m/s</h6>
+                    <h6>Humidity: —%</h6>
                 </div>
             </div>
+
             <div class="days-forecast">
-                <h2 style="background: #37373a; border-radius: 7px;">5-Days Forecast</h2>
+                <h2>5-Day Forecast</h2>
                 <ul class="weather-cards">
-                    <li class="card">
-                        <h3>( ______ )</h3>
-                        <h6>Temp: __C</h6>
-                        <h6>Wind: __ m/s</h6>
-                        <h6>Humidity: __ %</h6>
-                    </li>
-                    <li class="card">
-                        <h3>( ______ )</h3>
-                        <h6>Temp: __C</h6>
-                        <h6>Wind: __ m/s</h6>
-                        <h6>Humidity: __ %</h6>
-                    </li>
-                    <li class="card">
-                        <h3>( ______ )</h3>
-                        <h6>Temp: __C</h6>
-                        <h6>Wind: __ m/s</h6>
-                        <h6>Humidity: __ %</h6>
-                    </li>
-                    <li class="card">
-                        <h3>( ______ )</h3>
-                        <h6>Temp: __C</h6>
-                        <h6>Wind: __ m/s</h6>
-                        <h6>Humidity: __ %</h6>
-                    </li>
-                    <li class="card">
-                        <h3>( ______ )</h3>
-                        <h6>Temp: __C</h6>
-                        <h6>Wind: __ m/s</h6>
-                        <h6>Humidity: __ %</h6>
-                    </li>
+                    <li class="card placeholder"><h3>—</h3><h6>Temp: —°C</h6><h6>Wind: — m/s</h6><h6>Humidity: —%</h6></li>
+                    <li class="card placeholder"><h3>—</h3><h6>Temp: —°C</h6><h6>Wind: — m/s</h6><h6>Humidity: —%</h6></li>
+                    <li class="card placeholder"><h3>—</h3><h6>Temp: —°C</h6><h6>Wind: — m/s</h6><h6>Humidity: —%</h6></li>
+                    <li class="card placeholder"><h3>—</h3><h6>Temp: —°C</h6><h6>Wind: — m/s</h6><h6>Humidity: —%</h6></li>
                 </ul>
-                <!-- <h2 style="background: #37373a; border-radius: 7px;">7-Days History</h2>
-                <ul class="past-weather-cards">
-                    <li class="pcard">
-                        <h3>( ______ )</h3>
-                        <h6>Temp: __C</h6>
-                        <h6>Wind: __ m/s</h6>
-                        <h6>Humidity: __ %</h6>
-                    </li>
-                    <li class="pcard">
-                        <h3>( ______ )</h3>
-                        <h6>Temp: __C</h6>
-                        <h6>Wind: __ m/s</h6>
-                        <h6>Humidity: __ %</h6>
-                    </li>
-                    <li class="pcard">
-                        <h3>( ______ )</h3>
-                        <h6>Temp: __C</h6>
-                        <h6>Wind: __ m/s</h6>
-                        <h6>Humidity: __ %</h6>
-                    </li>
-                    <li class="pcard">
-                        <h3>( ______ )</h3>
-                        <h6>Temp: __C</h6>
-                        <h6>Wind: __ m/s</h6>
-                        <h6>Humidity: __ %</h6>
-                    </li>
-                    <li class="pcard">
-                        <h3>( ______ )</h3>
-                        <h6>Temp: __C</h6>
-                        <h6>Wind: __ m/s</h6>
-                        <h6>Humidity: __ %</h6>
-                    </li>
-                    <li class="pcard">
-                        <h3>( ______ )</h3>
-                        <h6>Temp: __C</h6>
-                        <h6>Wind: __ m/s</h6>
-                        <h6>Humidity: __ %</h6>
-                    </li>
-                    <li class="pcard">
-                        <h3>( ______ )</h3>
-                        <h6>Temp: __C</h6>
-                        <h6>Wind: __ m/s</h6>
-                        <h6>Humidity: __ %</h6>
-                    </li>
-                </ul> -->
             </div>
-        </div>
+
+            <div class="days-history">
+                <h2>7-Day History</h2>
+                <ul class="past-weather-cards">
+                    <li class="pcard placeholder"><h3>—</h3><h6>Temp: —°C</h6><h6>Wind: — m/s</h6><h6>Humidity: —%</h6></li>
+                    <li class="pcard placeholder"><h3>—</h3><h6>Temp: —°C</h6><h6>Wind: — m/s</h6><h6>Humidity: —%</h6></li>
+                    <li class="pcard placeholder"><h3>—</h3><h6>Temp: —°C</h6><h6>Wind: — m/s</h6><h6>Humidity: —%</h6></li>
+                    <li class="pcard placeholder"><h3>—</h3><h6>Temp: —°C</h6><h6>Wind: — m/s</h6><h6>Humidity: —%</h6></li>
+                    <li class="pcard placeholder"><h3>—</h3><h6>Temp: —°C</h6><h6>Wind: — m/s</h6><h6>Humidity: —%</h6></li>
+                    <li class="pcard placeholder"><h3>—</h3><h6>Temp: —°C</h6><h6>Wind: — m/s</h6><h6>Humidity: —%</h6></li>
+                    <li class="pcard placeholder"><h3>—</h3><h6>Temp: —°C</h6><h6>Wind: — m/s</h6><h6>Humidity: —%</h6></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <div class="loading-veil" aria-hidden="true">
+        <div class="spinner"></div>
     </div>
+
+    <script src="assets/config.js"></script>
     <script src="assets/script.js"></script>
 </body>
 
